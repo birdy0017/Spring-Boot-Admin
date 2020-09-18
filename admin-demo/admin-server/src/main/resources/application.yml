@@ -1,0 +1,27 @@
+eureka:
+  instance:
+    health-check-url-path: /actuator/health
+    lease-expiration-duration-in-seconds: 10
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+server:
+  port: 9000
+spring:
+  application:
+    name: admin-server
+  security:
+    user:
+      name: "qinfei180410126"
+      password: "qinfei180410126"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
